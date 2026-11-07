@@ -107,7 +107,7 @@ body.quotes {
     background-color: #f5f7fa;
 }
 body.quotes .banner {
-    background-color: #1e88e5;
+    background-color: #1565c0;
     height: 180px;
     font-size: 22px;
     padding: 20px 40px;
@@ -118,7 +118,7 @@ body.quotes h1 {
 }
 body.quotes .quote-list li {
     background-color: white;
-    border-left: 4px solid #1e88e5;
+    border-left: 4px solid #1565c0;
     padding: 18px 22px;
     margin: 12px 0;
     border-radius: 6px;
@@ -134,7 +134,7 @@ body.projects {
     background-color: #f5f7fa;
 }
 body.projects .banner {
-    background-color: #1e88e5;
+    background-color: #1565c0;
     height: 160px;
 }
 body.projects h1 {
@@ -143,7 +143,7 @@ body.projects h1 {
 }
 body.projects .project-list li {
     background-color: white;
-    border-left: 4px solid #1e88e5;
+    border-left: 4px solid #1565c0;
     padding: 20px 24px;
     margin: 15px 0;
     border-radius: 6px;
