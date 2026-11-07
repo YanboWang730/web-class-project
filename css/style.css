@@ -8,6 +8,10 @@ nav{
     background:#222;
     padding:1rem;
     text-align:center;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
 }
 nav a{
     color:white;
@@ -164,11 +168,14 @@ body.projects .project-list li:hover {
         padding: 20px;
     }
     nav a {
-        display: inline-block;
-        margin: 6px 8px;
-        font-size: 16px;
+        margin: 4px 6px;
+        font-size: 14px;
     }
     h1 {
         font-size: 24px;
+        text-align: center;
+    }
+    p {
+        font-size: 15px;
     }
 }
