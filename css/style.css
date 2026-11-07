@@ -152,3 +152,23 @@ body.projects .project-list li {
 body.projects .project-list li:hover {
     background-color: #e3f2fd;
 }
+/* Mobile responsive layout */
+@media (max-width: 768px) {
+    .banner {
+        height: auto;
+        padding: 40px 20px;
+        font-size: 20px;
+    }
+    .container {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+    nav a {
+        display: inline-block;
+        margin: 6px 8px;
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+}
