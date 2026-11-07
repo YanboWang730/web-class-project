@@ -78,33 +78,28 @@ ul{
     color:#555;
     line-height:1.6;
 }
-/* Homepage sci-fi background */
+/* Homepage banner with web sci-fi image */
 body.home {
+    background-color: #f5f7fa;
+}
+.home-banner {
     background-image: url('../images/web-sci-home-bg.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #fff;
-    min-height: 100vh;
-}
-body.home .banner {
-    background-color: rgba(10, 15, 30, 0.4);
-    backdrop-filter: blur(4px);
     height: 280px;
+    color: white;
 }
 body.home .container {
-    background-color: rgba(10, 15, 30, 0.65);
+    background-color: white;
     padding: 35px;
-    border-radius: 18px;
+    border-radius: 10px;
     max-width: 900px;
     width: 90%;
-    margin: 60px auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
+    margin: 30px auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 body.home h2 {
-    color: #42a5f5;
+    color: #1565c0;
     margin-top: 0;
 }
 /* Quotes page basic styling */
@@ -158,25 +153,16 @@ body.projects .project-list li:hover {
     background-color: #e3f2fd;
 }
 /* Mobile responsive layout */
-@media (max-width: 768px) {
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 4px;
-        padding: 8px 0;
+@media (max-width:768px){
+    .home-content{
+        padding:20px;
+        margin:25px auto;
     }
-    nav a {
-        font-size: 0.8rem;
-        padding: 4px 6px;
+    h1{
+        font-size:1.6rem;
+        text-align:center;
     }
-    .home-content {
-        padding: 20px;
-        margin: 25px auto;
+    nav{
+        flex-wrap:wrap;
     }
-    h1 {
-        font-size: 1.6rem;
-        text-align: center;
-    }
-
 }
