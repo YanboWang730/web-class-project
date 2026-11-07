@@ -74,3 +74,31 @@ ul{
     color:#555;
     line-height:1.6;
 }
+/* Homepage sci-fi background */
+body.home {
+    background-image: url('../images/web-sci-home-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    min-height: 100vh;
+}
+body.home .banner {
+    background-color: rgba(10, 15, 30, 0.4);
+    backdrop-filter: blur(4px);
+    height: 280px;
+}
+body.home .container {
+    background-color: rgba(10, 15, 30, 0.65);
+    padding: 35px;
+    border-radius: 18px;
+    max-width: 900px;
+    margin: 60px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+body.home h2 {
+    color: #42a5f5;
+    margin-top: 0;
+}
