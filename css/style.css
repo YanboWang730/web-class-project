@@ -90,6 +90,11 @@ body.home {
     min-height: 400px;
     color: white;
 }
+.home-banner h1 {
+    font-size: 52px;
+    font-weight: bold;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
 body.home .container {
     background-color: white;
     padding: 30px;
