@@ -55,3 +55,22 @@ ul{
     font-size:17px;
 }
 /* Day2 quotes page styling */
+.project-list{
+    list-style:none;
+    padding:0;
+}
+.project-list li{
+    background:white;
+    padding:20px 24px;
+    margin:15px 0;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+.project-list h3{
+    color:#1e88e5;
+    margin-bottom:8px;
+}
+.project-list p{
+    color:#555;
+    line-height:1.6;
+}
