@@ -71,7 +71,7 @@ ul{
     box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
 .project-list h3{
-    color:#1e88e5;
+    color:#1565c0;
     margin-bottom:8px;
 }
 .project-list p{
@@ -98,6 +98,7 @@ body.home .container {
     padding: 35px;
     border-radius: 18px;
     max-width: 900px;
+    width: 90%;
     margin: 60px auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
@@ -158,24 +159,24 @@ body.projects .project-list li:hover {
 }
 /* Mobile responsive layout */
 @media (max-width: 768px) {
-    .banner {
-        height: auto;
-        padding: 40px 20px;
-        font-size: 20px;
-    }
-    .container {
-        margin: 20px 15px;
-        padding: 20px;
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+        padding: 8px 0;
     }
     nav a {
-        margin: 4px 6px;
-        font-size: 14px;
+        font-size: 0.8rem;
+        padding: 4px 6px;
+    }
+    .home-content {
+        padding: 20px;
+        margin: 25px auto;
     }
     h1 {
-        font-size: 24px;
+        font-size: 1.6rem;
         text-align: center;
     }
-    p {
-        font-size: 15px;
-    }
+
 }
