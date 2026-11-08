@@ -158,6 +158,48 @@ body.projects .project-list li {
 body.projects .project-list li:hover {
     background-color: #e3f2fd;
 }
+/* Game page styling */
+body.game {
+    background-color: #f5f7fa;
+}
+body.game .banner {
+    background-color: #1565c0;
+    height: 160px;
+}
+body.game .container {
+    background-color: white;
+    padding: 35px;
+    border-radius: 10px;
+    max-width: 700px;
+    width: 90%;
+    margin: 30px auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+body.game h1 {
+    color: #222;
+    text-align: center;
+    margin-bottom: 20px;
+}
+body.game .game-info {
+    font-size: 20px;
+    text-align: center;
+    color: #333;
+    margin: 20px 0;
+}
+body.game #startBtn {
+    background-color: #1565c0;
+}
+body.game #startBtn:hover {
+    background-color: #0d47a1;
+}
+body.game .hole {
+    background-color: #5d4037;
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.3);
+}
+body.game .mole {
+    background-color: #8d6e63;
+    box-shadow: 0 -3px 6px rgba(0,0,0,0.2);
+}
 /* Mobile responsive layout */
 @media (max-width:768px){
     .home-content{

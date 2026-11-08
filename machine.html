@@ -9,28 +9,47 @@
         .game-area {
             display: grid;
             grid-template-columns: repeat(3, 100px);
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
             margin: 30px 0;
+            padding: 30px;
+            background-color: #e3f2fd;
+            border-radius: 16px;
         }
         .hole {
             width: 100px;
             height: 100px;
-            background: #8b4513;
+            background: #3e2723;
             border-radius: 50%;
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            box-shadow: inset 0 6px 12px rgba(0,0,0,0.5);
         }
         .mole {
             width: 60px;
             height: 60px;
-            background: #d2691e;
+            background: #a1887f;
             border-radius: 50%;
             position: absolute;
             bottom: -60px;
             left: 20px;
             transition: bottom 0.1s;
+        }
+        .mole::before, .mole::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #222;
+            border-radius: 50%;
+            top: 18px;
+        }
+        .mole::before {
+            left: 16px;
+        }
+        .mole::after {
+            right: 16px;
         }
         .mole.show {
             bottom: 10px;
@@ -41,22 +60,38 @@
             margin: 15px 0;
         }
         #startBtn {
-            background: #42a5f5;
+            background: #1565c0;
             color: white;
             border: none;
             padding: 12px 30px;
             font-size: 18px;
             border-radius: 8px;
             cursor: pointer;
-            display: block;
-            margin: 20px auto;
+            margin: 0 10px;
         }
         #startBtn:hover {
-            background: #1e88e5;
+            background: #0d47a1;
+        }
+        #endBtn {
+            background: #e53935;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        #endBtn:hover {
+            background: #c62828;
+        }
+        .button-group {
+            text-align: center;
+            margin: 20px auto;
         }
     </style>
 </head>
-<body>
+<body class="game">
     <div class="banner">
         <h2>Whack-a-Mole Game</h2>
     </div>
@@ -66,7 +101,10 @@
         <div class="game-info">
             Score: <span id="score">0</span> | Time Left: <span id="time">30</span>s
         </div>
-        <button id="startBtn">Start Game</button>
+        <div class="button-group">
+            <button id="startBtn">Start Game</button>
+            <button id="endBtn">End Game</button>
+        </div>
         <div class="game-area" id="gameArea">
             <div class="hole"><div class="mole"></div></div>
             <div class="hole"><div class="mole"></div></div>
@@ -86,6 +124,7 @@
         const scoreEl = document.getElementById('score');
         const timeEl = document.getElementById('time');
         const startBtn = document.getElementById('startBtn');
+        const endBtn = document.getElementById('endBtn');
         let score = 0;
         let timeLeft = 30;
         let timerId = null;
@@ -137,6 +176,11 @@
         });
 
         startBtn.addEventListener('click', startGame);
+        endBtn.addEventListener('click', () => {
+            if (gameRunning) {
+                endGame();
+            }
+        });
     </script>
 </body>
 </html>
