@@ -1,20 +1,58 @@
-﻿*{
+﻿:root{
+    --bg: #f5f7fa;
+    --card-bg: #ffffff;
+    --text: #222222;
+    --text-muted: #555555;
+    --nav-bg: #222222;
+    --nav-text: #ffffff;
+    --banner-bg: #1565c0;
+    --accent: #1565c0;
+    --accent-hover: #0d47a1;
+    --accent-light: #e3f2fd;
+    --border-left: #1565c0;
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    --hole-bg: #5d4037;
+    --mole-bg: #8d6e63;
+}
+[data-theme="dark"]{
+    --bg: #121212;
+    --card-bg: #1e1e1e;
+    --text: #e0e0e0;
+    --text-muted: #aaaaaa;
+    --nav-bg: #1a1a1a;
+    --nav-text: #e0e0e0;
+    --banner-bg: #0d47a1;
+    --accent: #42a5f5;
+    --accent-hover: #64b5f6;
+    --accent-light: #1e3a5f;
+    --border-left: #42a5f5;
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    --hole-bg: #3e2723;
+    --mole-bg: #6d4c41;
+}
+*{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family: sans-serif;
 }
+body{
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
+}
 nav{
-    background:#222;
+    background: var(--nav-bg);
     padding:1rem;
     text-align:center;
     display:flex;
     justify-content:center;
+    align-items:center;
     flex-wrap:wrap;
     gap:8px;
 }
 nav a{
-    color:white;
+    color: var(--nav-text);
     text-decoration:none;
     margin:0 12px;
     font-size:18px;
@@ -22,10 +60,23 @@ nav a{
 nav a:hover{
     color:#42a5f5;
 }
+.theme-toggle{
+    margin-left:16px;
+    background:transparent;
+    border:2px solid #666;
+    color:var(--nav-text);
+    border-radius:20px;
+    padding:4px 12px;
+    cursor:pointer;
+    font-size:16px;
+}
+.theme-toggle:hover{
+    border-color:#42a5f5;
+}
 .banner{
     width:100%;
     height:260px;
-    background:#444;
+    background: var(--banner-bg);
     color:#fff;
     display:flex;
     align-items:center;
@@ -51,36 +102,37 @@ ul{
     padding:0;
 }
 .quote-list li{
-    background:white;
+    background: var(--card-bg);
+    color: var(--text);
     padding:16px 20px;
     margin:10px 0;
     border-radius:8px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    box-shadow: var(--card-shadow);
     font-size:17px;
 }
-/* Day2 quotes page styling */
 .project-list{
     list-style:none;
     padding:0;
 }
 .project-list li{
-    background:white;
+    background: var(--card-bg);
+    color: var(--text);
     padding:20px 24px;
     margin:15px 0;
     border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: var(--card-shadow);
 }
 .project-list h3{
-    color:#1565c0;
+    color: var(--accent);
     margin-bottom:8px;
 }
 .project-list p{
-    color:#555;
+    color: var(--text-muted);
     line-height:1.6;
 }
 /* Homepage banner with web sci-fi image */
 body.home {
-    background-color: #f5f7fa;
+    background-color: var(--bg);
 }
 .home-banner {
     background-image: url('../images/web-sci-home-bg.jpg');
@@ -96,108 +148,118 @@ body.home {
     text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 body.home .container {
-    background-color: white;
+    background-color: var(--card-bg);
+    color: var(--text);
     padding: 30px;
     border-radius: 10px;
     max-width: 900px;
     width: 90%;
     margin: 20px auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
 }
 body.home h2 {
-    color: #1565c0;
+    color: var(--accent);
     margin-top: 0;
 }
 /* Quotes page basic styling */
 body.quotes {
-    background-color: #f5f7fa;
+    background-color: var(--bg);
 }
 body.quotes .banner {
-    background-color: #1565c0;
+    background-color: var(--banner-bg);
     height: 180px;
     font-size: 22px;
     padding: 20px 40px;
 }
 body.quotes h1 {
-    color: #222;
+    color: var(--text);
     margin-bottom: 20px;
 }
 body.quotes .quote-list li {
-    background-color: white;
-    border-left: 4px solid #1565c0;
+    background-color: var(--card-bg);
+    color: var(--text);
+    border-left: 4px solid var(--border-left);
     padding: 18px 22px;
     margin: 12px 0;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
     font-size: 17px;
     line-height: 1.6;
 }
 body.quotes .quote-list li:hover {
-    background-color: #e3f2fd;
+    background-color: var(--accent-light);
 }
 /* Projects page basic styling */
 body.projects {
-    background-color: #f5f7fa;
+    background-color: var(--bg);
 }
 body.projects .banner {
-    background-color: #1565c0;
+    background-color: var(--banner-bg);
     height: 160px;
 }
 body.projects h1 {
-    color: #222;
+    color: var(--text);
     margin-bottom: 20px;
 }
 body.projects .project-list li {
-    background-color: white;
-    border-left: 4px solid #1565c0;
+    background-color: var(--card-bg);
+    color: var(--text);
+    border-left: 4px solid var(--border-left);
     padding: 20px 24px;
     margin: 15px 0;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
 }
 body.projects .project-list li:hover {
-    background-color: #e3f2fd;
+    background-color: var(--accent-light);
 }
 /* Game page styling */
 body.game {
-    background-color: #f5f7fa;
+    background-color: var(--bg);
 }
 body.game .banner {
-    background-color: #1565c0;
+    background-color: var(--banner-bg);
     height: 160px;
 }
 body.game .container {
-    background-color: white;
+    background-color: var(--card-bg);
+    color: var(--text);
     padding: 35px;
     border-radius: 10px;
     max-width: 700px;
     width: 90%;
     margin: 30px auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
 }
 body.game h1 {
-    color: #222;
+    color: var(--text);
     text-align: center;
     margin-bottom: 20px;
 }
 body.game .game-info {
     font-size: 20px;
     text-align: center;
-    color: #333;
+    color: var(--text-muted);
     margin: 20px 0;
 }
 body.game #startBtn {
-    background-color: #1565c0;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
 }
 body.game #startBtn:hover {
-    background-color: #0d47a1;
+    background-color: var(--accent-hover);
 }
 body.game .hole {
-    background-color: #5d4037;
+    background-color: var(--hole-bg);
     box-shadow: inset 0 5px 10px rgba(0,0,0,0.3);
 }
 body.game .mole {
-    background-color: #8d6e63;
+    background-color: var(--mole-bg);
     box-shadow: 0 -3px 6px rgba(0,0,0,0.2);
 }
 /* Mobile responsive layout */
