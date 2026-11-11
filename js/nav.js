@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function(){
     `;
     document.body.insertAdjacentHTML('afterbegin', navHTML);
     updateThemeIcon();
-})();
+});
 
 function toggleTheme(){
     const current = document.documentElement.getAttribute('data-theme');
