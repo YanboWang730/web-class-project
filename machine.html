@@ -280,7 +280,7 @@
                 <div>Switch state: <strong id="umState">OFF</strong></div>
                 <div>Switch attempts: <strong id="umCount">0</strong></div>
                 <div>Usefulness delivered: <strong>0%</strong></div>
-                <div>Time wasted: <strong id="umTime">0.0s</strong></div>
+                <div>Total time wasted: <strong id="umTime">0.0s</strong></div>
                 <div class="um-msg" id="umMsg">Click the switch to wake it up.</div>
                 <button class="um-btn" id="umBtn">Flip the switch</button>
             </div>
@@ -385,6 +385,12 @@
             setTimeout(() => {
                 umLid.classList.remove('open');
                 umBusy = false;
+                // 一轮结束就停表，避免数字无休止地跳
+                if (umTimer) {
+                    clearInterval(umTimer);
+                    umTimer = null;
+                }
+                umTimeEl.textContent = umSeconds.toFixed(1) + 's';
             }, 2400);
         }
 
