@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whack-a-Mole Game</title>
-    <meta property="og:title" content="Web Tech Class Project">
-    <meta property="og:description" content="Web course project with quote page, project list and whack-a-mole game.">
-    <meta property="og:image" content="https://gitee.com/wyb730/web-class-project/raw/master/images/og-class.jpg">
-    <meta property="og:url" content="https://gitee.com/wyb730/web-class-project">
+    <title>The Useless Machine | Web Tech Class Project</title>
+    <meta property="og:title" content="Web Tech Class Project - Useless Machine">
+    <meta property="og:description" content="An interactive useless machine toy, a whack-a-mole game, a quote gallery and a project list.">
+    <meta property="og:image" content="https://yanbowang730.github.io/web-class-project/images/og-class.jpg">
+    <meta property="og:url" content="https://yanbowang730.github.io/web-class-project/machine.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="css/style.css">
@@ -51,15 +51,9 @@
             border-radius: 50%;
             top: 18px;
         }
-        .mole::before {
-            left: 16px;
-        }
-        .mole::after {
-            right: 16px;
-        }
-        .mole.show {
-            bottom: 10px;
-        }
+        .mole::before { left: 16px; }
+        .mole::after { right: 16px; }
+        .mole.show { bottom: 10px; }
         .game-info {
             text-align: center;
             font-size: 20px;
@@ -75,9 +69,7 @@
             cursor: pointer;
             margin: 0 10px;
         }
-        #startBtn:hover {
-            background: #0d47a1;
-        }
+        #startBtn:hover { background: #0d47a1; }
         #endBtn {
             background: #e53935;
             color: white;
@@ -88,22 +80,228 @@
             cursor: pointer;
             margin: 0 10px;
         }
-        #endBtn:hover {
-            background: #c62828;
-        }
+        #endBtn:hover { background: #c62828; }
         .button-group {
             text-align: center;
             margin: 20px auto;
+        }
+
+        /* ============ Useless Machine toy ============ */
+        .um-intro {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .um-stage {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            margin: 46px 0 30px;
+        }
+        .um-box-wrap {
+            position: relative;
+            width: 300px;
+            height: 210px;
+            flex: 0 0 auto;
+        }
+        /* 机身 */
+        .um-box {
+            position: absolute;
+            inset: 16px 0 0 0;
+            background: linear-gradient(160deg, #8d6e63 0%, #6d4c41 55%, #4e342e 100%);
+            border-radius: 10px;
+            box-shadow: 0 14px 26px rgba(0,0,0,0.35), inset 0 2px 0 rgba(255,255,255,0.15);
+            overflow: hidden;
+        }
+        .um-face {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.75);
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+        /* 盖子与出臂口 */
+        .um-slot {
+            position: absolute;
+            top: 14px;
+            left: 16px;
+            width: 96px;
+            height: 10px;
+            background: #241311;
+            border-radius: 5px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
+            z-index: 4;
+        }
+        .um-lid {
+            position: absolute;
+            top: 6px;
+            left: 16px;
+            width: 60px;
+            height: 12px;
+            background: linear-gradient(#3e3e3e, #232323);
+            border-radius: 5px 5px 2px 2px;
+            transform-origin: left center;
+            transition: transform 0.55s cubic-bezier(.4,0,.3,1);
+            z-index: 6;
+        }
+        .um-lid.open { transform: rotate(-92deg); }
+        /* 手臂 */
+        .um-arm {
+            position: absolute;
+            left: 52px;
+            bottom: 26px;
+            width: 14px;
+            height: 0;
+            border-radius: 8px;
+            background: linear-gradient(#cfcfcf, #8d8d8d);
+            z-index: 5;
+            transition: height 0.5s ease, transform 0.45s ease;
+        }
+        .um-arm .um-hand {
+            position: absolute;
+            top: -20px;
+            left: -7px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #ffd8a8, #e0a96d);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .um-arm.rise { height: 128px; }
+        .um-arm.rise .um-hand { opacity: 1; }
+        .um-arm.push { transform: translateX(152px); }
+        /* 开关 */
+        .um-switch {
+            position: absolute;
+            right: 42px;
+            top: 26px;
+            width: 34px;
+            height: 46px;
+            border-radius: 8px;
+            background: linear-gradient(#2a2a2a, #111111);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.6), 0 2px 6px rgba(0,0,0,0.4);
+            cursor: pointer;
+            z-index: 7;
+        }
+        .um-lever {
+            position: absolute;
+            left: 6px;
+            bottom: 6px;
+            width: 22px;
+            height: 24px;
+            border-radius: 6px 6px 3px 3px;
+            background: linear-gradient(#e53935, #b71c1c);
+            transform-origin: bottom center;
+            transform: rotate(16deg);
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+        .um-switch.on .um-lever {
+            transform: rotate(-22deg);
+            background: linear-gradient(#66bb6a, #2e7d32);
+        }
+        /* 读数 */
+        .um-panel {
+            min-width: 220px;
+            background: var(--card-bg);
+            border-left: 4px solid var(--border-left);
+            border-radius: 6px;
+            padding: 18px 20px;
+            box-shadow: var(--card-shadow);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        .um-panel strong { color: var(--accent); }
+        .um-msg {
+            margin-top: 8px;
+            color: var(--text-muted);
+            font-style: italic;
+            min-height: 24px;
+        }
+        .um-btn {
+            display: block;
+            margin: 6px auto 0;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 22px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .um-btn:hover { background: var(--accent-hover); }
+        @media (max-width: 768px) {
+            .um-stage { gap: 18px; }
+            .um-box-wrap { width: 260px; height: 190px; }
+            .um-arm.push { transform: translateX(128px); }
+            .um-switch { right: 34px; }
         }
     </style>
 </head>
 <body class="game">
     <div class="banner">
-        <h2>Whack-a-Mole Game</h2>
+        <h2>The Useless Machine</h2>
     </div>
 
     <div class="container">
-        <h1>Play Whack-a-Mole</h1>
+        <h1>The Useless Machine</h1>
+        <p class="um-intro">
+            A little box with one single switch. Flip the switch on and the machine gets to work:
+            the lid opens, a hand rises out of the box, pushes the switch back to OFF and retreats.
+            It does absolutely nothing useful, and that is the whole point.
+        </p>
+
+        <!-- 交互玩具 -->
+        <div class="um-stage">
+            <div class="um-box-wrap">
+                <div class="um-box">
+                    <div class="um-face">USELESS MACHINE</div>
+                    <div class="um-slot"></div>
+                </div>
+                <div class="um-lid" id="umLid"></div>
+                <div class="um-arm" id="umArm">
+                    <span class="um-hand"></span>
+                </div>
+                <div class="um-switch" id="umSwitch">
+                    <span class="um-lever"></span>
+                </div>
+            </div>
+
+            <div class="um-panel">
+                <div>Switch state: <strong id="umState">OFF</strong></div>
+                <div>Switch attempts: <strong id="umCount">0</strong></div>
+                <div>Usefulness delivered: <strong>0%</strong></div>
+                <div>Time wasted: <strong id="umTime">0.0s</strong></div>
+                <div class="um-msg" id="umMsg">Click the switch to wake it up.</div>
+                <button class="um-btn" id="umBtn">Flip the switch</button>
+            </div>
+        </div>
+
+        <h2>How it works</h2>
+        <p class="um-intro">
+            Inside the box there is a small motor, a cam and a lever. The switch you flip also closes
+            the circuit, so the motor starts, the cam pushes a lever that opens the lid, the arm swings
+            out and knocks the switch back to the off position. With the switch off, the motor stops and
+            a spring pulls the arm home. Nothing else happens, ever.
+        </p>
+
+        <h2>Where it comes from</h2>
+        <p class="um-intro">
+            The idea is usually credited to Claude Shannon, who built a version he called the
+            "Ultimate Machine" in the 1950s, and it was later popularised by the maker community.
+            It is a joke machine: a device whose only purpose is to switch itself off.
+        </p>
+
+        <h2>Bonus: Whack-a-Mole</h2>
         <div class="game-info">
             Score: <span id="score">0</span> | Time Left: <span id="time">30</span>s
         </div>
@@ -126,6 +324,74 @@
 
     <script src="js/nav.js"></script>
     <script>
+        /* ---------- Useless machine ---------- */
+        const umSwitch = document.getElementById('umSwitch');
+        const umLid = document.getElementById('umLid');
+        const umArm = document.getElementById('umArm');
+        const umCount = document.getElementById('umCount');
+        const umMsg = document.getElementById('umMsg');
+        const umTimeEl = document.getElementById('umTime');
+        const umBtn = document.getElementById('umBtn');
+        const umState = document.getElementById('umState');
+
+        let umBusy = false;
+        let umAttempts = 0;
+        let umTimer = null;
+        let umSeconds = 0;
+
+        function umFlip() {
+            if (umBusy) return;
+            umBusy = true;
+            umAttempts++;
+            umCount.textContent = umAttempts;
+            umSwitch.classList.add('on');
+            umState.textContent = 'ON';
+            umMsg.textContent = 'You turned it on. Bad idea.';
+
+            if (!umTimer) {
+                umTimer = setInterval(() => {
+                    umSeconds += 0.1;
+                    umTimeEl.textContent = umSeconds.toFixed(1) + 's';
+                }, 100);
+            }
+
+            // 1) 开盖 + 手臂升起
+            setTimeout(() => {
+                umLid.classList.add('open');
+                umArm.classList.add('rise');
+            }, 500);
+
+            // 2) 手臂伸过去把开关拨回去
+            setTimeout(() => {
+                umArm.classList.add('push');
+                umMsg.textContent = 'Here comes the hand...';
+            }, 1000);
+
+            setTimeout(() => {
+                umSwitch.classList.remove('on');
+                umState.textContent = 'OFF';
+                umMsg.textContent = 'It turned itself off. Again.';
+            }, 1450);
+
+            // 3) 收手 + 关盖
+            setTimeout(() => {
+                umArm.classList.remove('push');
+            }, 1800);
+
+            setTimeout(() => {
+                umArm.classList.remove('rise');
+            }, 2050);
+
+            setTimeout(() => {
+                umLid.classList.remove('open');
+                umBusy = false;
+            }, 2400);
+        }
+
+        umSwitch.addEventListener('click', umFlip);
+        umBtn.addEventListener('click', umFlip);
+
+        /* ---------- Whack-a-mole ---------- */
         const holes = document.querySelectorAll('.hole');
         const scoreEl = document.getElementById('score');
         const timeEl = document.getElementById('time');
@@ -150,7 +416,7 @@
             timeEl.textContent = timeLeft;
             gameRunning = true;
             startBtn.disabled = true;
-            
+
             timerId = setInterval(() => {
                 timeLeft--;
                 timeEl.textContent = timeLeft;
@@ -189,7 +455,7 @@
         });
     </script>
     <footer>
-        <p>© 2026 Web Tech Class Project</p>
+        <p>&copy; 2026 Web Tech Class Project</p>
     </footer>
 </body>
 </html>
